@@ -1,18 +1,20 @@
 spring:
   application:
     name: eureka-server  
-  profiles: peer1
 
 server:
   port: 8761
 
 eureka:
   instance:
-    hostname: peer1
+    hostname: localhost
     preferIpAddress: false
-    ipAddress: 127.0.0.1
+    ipAddress: 192.168.2.111
   client:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://peer2:8762/eureka/,http://peer3:8763/eureka/
+      defaultZone: http://192.168.2.120:8761/eureka/,http://192.168.2.123:8761/eureka/
+
+logging:
+  config: classpath:logback.xml
